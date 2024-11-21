@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EU Data Fetcher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>EU Data Fetcher</h1>
+
+    <!-- Button to fetch categories -->
+    <div class="container">
+        <button id="fetchCategories">Fetch Categories</button>
+        <ul id="categoryList"></ul>
+    </div>
+
+    <!-- Input and button to fetch datasets -->
+    <div class="container">
+        <input type="text" id="categoryInput" placeholder="Enter category ID">
+        <button id="fetchDatasets">Fetch Datasets</button>
+        <ul id="datasetList"></ul>
+    </div>
+
+    <!-- Input and button to fetch dataset metadata -->
+    <div class="container">
+        <input type="text" id="datasetInput" placeholder="Enter dataset name">
+        <button id="fetchMetadata">Fetch Metadata</button>
+        <div id="metadataOutput" class="output"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
