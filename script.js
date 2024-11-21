@@ -1,19 +1,16 @@
-const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const apiBase = "https://data.europa.eu/api/hub/repo";
 
 // Fetch categories and list their IDs
 document.getElementById("fetchCategories").addEventListener("click", async () => {
     try {
-        const response = await fetch(`${proxyUrl}${apiBase}/catalogues`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+        const response = await fetch(`${apiBase}/catalogues`);
         const categories = await response.json();
         const categoryList = document.getElementById("categoryList");
         categoryList.innerHTML = ""; // Clear previous results
 
         categories.forEach(categoryUrl => {
-            const categoryId = categoryUrl.split("/").pop(); // Extract category ID
+            // Extract the category ID from the URL
+            const categoryId = categoryUrl.split("/").pop();
             const li = document.createElement("li");
             li.textContent = categoryId;
             categoryList.appendChild(li);
@@ -22,7 +19,6 @@ document.getElementById("fetchCategories").addEventListener("click", async () =>
         alert("Failed to fetch categories: " + error.message);
     }
 });
-
 
 // Fetch datasets based on the category ID
 document.getElementById("fetchDatasets").addEventListener("click", async () => {
